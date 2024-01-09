@@ -11,10 +11,26 @@ def sub_catalog(request, section_name, previous_section, sub_catalog_name, prev_
     page_data = {
         'title': 'MAN - Catalog',
         'section_name': section_name,
-        'previous_section': previous_section,
+        'previous_section': 'catalog',
         'sub_catalog_name': sub_catalog_name,
         'is_sub_section': True,
         'types_data': ITEMS_TYPES_DATA[sub_catalog_name],
         'prev_item_type': prev_item_type,
     }
+    print(page_data)
     return render(request, 'catalog/sub_catalog.html', page_data)
+
+
+def show_sub_catalog_by_type(request, sub_catalog_name, item_type, prev_item_type):
+    page_data = {
+        'title': 'MAN - Catalog',
+        'section_name': 'catalog',
+        'previous_section': 'catalog',
+        'sub_catalog_name': sub_catalog_name,
+        'is_sub_section': True,
+        'types_data': ITEMS_TYPES_DATA[sub_catalog_name],
+        'item_type': item_type,
+        'prev_item_type': prev_item_type,
+    }
+
+    return render(request, 'catalog/show_sub_catalog_by_type.html', page_data)

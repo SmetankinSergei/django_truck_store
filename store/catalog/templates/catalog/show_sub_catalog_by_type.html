@@ -1,0 +1,45 @@
+{% extends 'catalog/sub_catalog.html' %}
+{% load static %}
+{% load sections_tags %}
+{% load catalog_tags %}
+
+{% block types %}
+    {% for type_data in types_data %}
+        <map name="item_link_{{ type_data.name }}">
+            {% if type_data.name == item_type %}
+                <area id="active"
+                      href="{% url 'catalog:show_sub_catalog_by_type' sub_catalog_name type_data.name item_type %}"
+                      shape="rect" coords="20, 60, 140, 100" />
+            {% elif type_data.name == prev_item_type %}
+                <area id="prev"
+                      href="{% url 'catalog:show_sub_catalog_by_type' sub_catalog_name type_data.name item_type %}"
+                      shape="rect" coords="20, 60, 140, 100" />
+            {% else %}
+                <area href="{% url 'catalog:show_sub_catalog_by_type' sub_catalog_name type_data.name item_type %}"
+                      shape="rect" coords="20, 60, 140, 100" />
+            {% endif %}
+        </map>
+
+        <img usemap="#item_link_{{ type_data.name }}" class="type-icon"
+                 src="{% static type_data.icon %}" alt="{{ type_data.name }} icon">
+    {% endfor %}
+{% endblock %}
+
+{% block items %}
+    {% get_trucks as trucks %}
+    {% for truck in trucks %}
+        {% if truck.truck_type|lower == item_type or item_type == 'all types' %}
+<!--        <a class="item-link" href="{% url 'catalog:item' truck.pk sub_catalog_name %}">-->
+<!--            <div class="store_item" style="background-image:url('{% static truck.main_photo %}')">-->
+<!--                <div class="info_background"></div>-->
+<!--                <p class="item_name">{{ truck.name }} {{ truck.info.year }}</p>-->
+<!--                {% if truck.price > 0 %}-->
+<!--                <p class="item_price">price: {{ truck.price }} EUR</p>-->
+<!--                {% else %}-->
+<!--                <p class="item_price">price on request</p>-->
+<!--                {% endif %}-->
+<!--            </div>-->
+<!--        {% endif %}-->
+<!--        </a>-->
+    {% endfor %}
+{% endblock %}

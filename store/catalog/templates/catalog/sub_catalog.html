@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load sections_tags %}
-{% load models_tags %}
+{% load catalog_tags %}
 
 {% block style %}
 <link rel="stylesheet" type="text/css" href="{% static 'root/css/content_background.css' %}">
@@ -18,10 +18,10 @@
                 <map name="item_link_{{ type_data.name }}">
                     {% if type_data.name == prev_item_type %}
                     <area id="prev"
-                          href="{% url 'root:show_sub_catalog_by_type' sub_catalog_name type_data.name 'all types' %}"
+                          href="{% url 'catalog:show_sub_catalog_by_type' sub_catalog_name type_data.name 'all types' %}"
                           shape="rect" coords="20, 60, 140, 100" />
                     {% else %}
-                    <area href="{% url 'root:show_sub_catalog_by_type' sub_catalog_name type_data.name 'all types' %}"
+                    <area href="{% url 'catalog:show_sub_catalog_by_type' sub_catalog_name type_data.name 'all types' %}"
                           shape="rect" coords="20, 60, 140, 100" />
                     {% endif %}
                 </map>
@@ -31,7 +31,7 @@
         {% endfor %}
         {% endblock %}
 
-        {% include 'root/includes/call_us.html' %}
+        {% include 'catalog/includes/call_us.html' %}
     </div>
 
     <div class="scroll-container">

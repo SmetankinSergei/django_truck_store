@@ -1,6 +1,6 @@
 from django import template
 
-from catalog.models import SubCatalog
+from catalog.models import SubCatalog, Truck
 
 register = template.Library()
 

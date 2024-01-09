@@ -1,0 +1,43 @@
+.call-us {
+    display: flex;
+    min-width: 13em;
+    flex-direction: column;
+    text-align: center;
+    margin-inline: 1em;
+}
+
+.call-icon {
+    margin-block: 1em;
+    margin-left: 5em;
+    width: 3.5em;
+    -webkit-animation: myAnim 2s ease 0s infinite normal forwards;
+    animation: myAnim 2s ease 0s infinite normal forwards;
+}
+
+@keyframes myAnim {
+	0%,
+	100% {
+		transform: translateX(0%);
+		transform-origin: 50% 50%;
+	}
+
+	15% {
+		transform: translateX(-15px) rotate(-6deg);
+	}
+
+	30% {
+		transform: translateX(7px) rotate(6deg);
+	}
+
+	45% {
+		transform: translateX(-7px) rotate(-3.6deg);
+	}
+
+	60% {
+		transform: translateX(4px) rotate(2.4deg);
+	}
+
+	75% {
+		transform: translateX(-3px) rotate(-1.2deg);
+	}
+}

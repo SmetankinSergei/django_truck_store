@@ -1,5 +1,7 @@
 .content {
     background-image: url("../img/man_back_truck_bw_op.png");
+    -webkit-animation: bw-background 1000ms linear;
+    -webkit-animation-iteration-count: 1;
     animation: bw-background 1000ms linear;
     animation-iteration-count: 1;
 }
