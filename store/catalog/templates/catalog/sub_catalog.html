@@ -4,14 +4,14 @@
 {% load catalog_tags %}
 
 {% block style %}
-<link rel="stylesheet" type="text/css" href="{% static 'root/css/content_background.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'root/css/sub_catalog.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/content_background.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/sub_catalog.css' %}">
 {% endblock %}
 
 {% block content %}
 <div class="store-window">
     <div class="left-bar">
-        <img id="target" class="types_cursor" src="{% static 'root/img/types_cursor.png' %}" alt="types cursor">
+        <img id="target" class="types_cursor" src="{% static 'img/types_cursor.png' %}" alt="types cursor">
 
         {% block types %}
             {% for type_data in types_data %}
