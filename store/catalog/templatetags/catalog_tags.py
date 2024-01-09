@@ -13,3 +13,8 @@ def get_sub_catalogs():
 @register.simple_tag()
 def get_trucks():
     return Truck.objects.all()
+
+
+@register.simple_tag()
+def get_parts():
+    return None

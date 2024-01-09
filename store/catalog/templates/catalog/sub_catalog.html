@@ -39,16 +39,26 @@
         <div class="store-items">
 <!--    if item == truck -> get_trucks elif item == parts -> get_parts / as items -->
             {% block items %}
-                {% get_trucks as trucks %}
-                {% for truck in trucks %}
-                    <a class="item-link" href="{% url 'root:item' 1 sub_catalog_name %}">
+                {% if sub_catalog_name == 'trucks' %}
+                    {% get_trucks as items %}
+                {% elif sub_catalog_name == 'parts' %}
+                    {% get_parts as items %}
+                {% endif %}
+                {% for item in items %}
+                    <a class="item-link" href="{% url 'catalog:item' 1 sub_catalog_name %}">
                         <div class="store_item" style="background-image:url('{% static truck.main_photo %}')">
                             <div class="info_background"></div>
-                            <p class="item_name">{{ truck.name }} {{ truck.info.year }}</p>
-                            {% if truck.price > 0 %}
-                            <p class="item_price">price: {{ truck.price }} EUR</p>
+
+                            {% if sub_catalog_name == 'trucks' %}
+                                <p class="item_name">{{ item.name }} {{ item.info.year }}</p>
+                            {% elif sub_catalog_name == 'parts' %}
+                                <p class="item_name">{{ item.name }}</p>
+                            {% endif %}
+
+                            {% if item.price > 0 %}
+                                <p class="item_price">price: {{ item.price }} EUR</p>
                             {% else %}
-                            <p class="item_price">price on request</p>
+                                <p class="item_price">price on request</p>
                             {% endif %}
                         </div>
                     </a>
