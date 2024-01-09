@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models import SET_NULL, PROTECT
 
-from catalog.constants import HEAD, DUMP, CARGO
+from catalog.constants import HEAD, DUMP, CARGO, LIGHT, BRAKES, ENGINE
 
 NULLABLE = {'null': True, 'blank': True}
 
@@ -28,7 +28,7 @@ class Truck(models.Model):
     name = models.CharField(max_length=50)
     price = models.IntegerField()
     info = models.OneToOneField('TruckInfo', on_delete=SET_NULL, **NULLABLE, related_name='truck')
-    sub_catalog = models.ForeignKey('SubCatalog', on_delete=PROTECT, related_name='sub_catalog')
+    sub_catalog = models.ForeignKey('SubCatalog', on_delete=PROTECT, related_name='truck_sub_catalog')
     truck_type = models.CharField(max_length=10, choices=TRUCKS_TYPES, **NULLABLE)
     main_photo = models.ImageField(upload_to='trucks_img/')
     second_photo = models.ImageField(upload_to='trucks_img/', **NULLABLE)
@@ -56,3 +56,25 @@ class TruckInfo(models.Model):
     class Meta:
         verbose_name = 'TruckInfo'
         verbose_name_plural = 'TruckInfo'
+
+
+class Part(models.Model):
+
+    PARTS_TYPES = [
+        (LIGHT, 'light'),
+        (ENGINE, 'engine'),
+        (BRAKES, 'brakes'),
+    ]
+
+    name = models.CharField(max_length=50)
+    price = models.IntegerField()
+    info = models.TextField(**NULLABLE)
+    sub_catalog = models.ForeignKey('SubCatalog', on_delete=PROTECT, related_name='part_sub_catalog')
+    part_type = models.CharField(max_length=10, choices=PARTS_TYPES, **NULLABLE)
+    main_photo = models.ImageField(upload_to='parts_img/')
+    create_date = models.DateField(auto_now_add=True)
+    change_date = models.DateField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Part'
+        verbose_name_plural = 'Parts'

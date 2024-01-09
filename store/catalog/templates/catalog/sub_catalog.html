@@ -45,8 +45,8 @@
                     {% get_parts as items %}
                 {% endif %}
                 {% for item in items %}
-                    <a class="item-link" href="{% url 'catalog:item' 1 sub_catalog_name %}">
-                        <div class="store_item" style="background-image:url('{% static truck.main_photo %}')">
+                    <a class="item-link" href="{% url 'catalog:item' item.pk sub_catalog_name %}">
+                        <div class="store_item" style="background-image:url('{% static item.main_photo %}')">
                             <div class="info_background"></div>
 
                             {% if sub_catalog_name == 'trucks' %}
