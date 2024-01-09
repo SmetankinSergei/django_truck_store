@@ -1,6 +1,6 @@
 from django import template
 
-from catalog.models import SubCatalog, Truck
+from catalog.models import SubCatalog, Truck, Part
 
 register = template.Library()
 
@@ -17,4 +17,4 @@ def get_trucks():
 
 @register.simple_tag()
 def get_parts():
-    return None
+    return Part.objects.all()

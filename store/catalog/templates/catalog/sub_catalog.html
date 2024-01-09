@@ -37,7 +37,6 @@
     <div class="scroll-container">
 
         <div class="store-items">
-<!--    if item == truck -> get_trucks elif item == parts -> get_parts / as items -->
             {% block items %}
                 {% if sub_catalog_name == 'trucks' %}
                     {% get_trucks as items %}
@@ -46,7 +45,7 @@
                 {% endif %}
                 {% for item in items %}
                     <a class="item-link" href="{% url 'catalog:item' item.pk sub_catalog_name %}">
-                        <div class="store_item" style="background-image:url('{% static item.main_photo %}')">
+                        <div class="store_item" style='background-image:url("{{item.main_photo.url}}")'>
                             <div class="info_background"></div>
 
                             {% if sub_catalog_name == 'trucks' %}

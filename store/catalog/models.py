@@ -11,6 +11,9 @@ class SubCatalog(models.Model):
     label = models.CharField(max_length=20, verbose_name='Label')
     img = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name = 'Sub catalog'
         verbose_name_plural = 'Sub catalogs'
@@ -29,7 +32,7 @@ class Truck(models.Model):
     price = models.IntegerField()
     info = models.OneToOneField('TruckInfo', on_delete=SET_NULL, **NULLABLE, related_name='truck')
     sub_catalog = models.ForeignKey('SubCatalog', on_delete=PROTECT, related_name='truck_sub_catalog')
-    truck_type = models.CharField(max_length=10, choices=TRUCKS_TYPES, **NULLABLE)
+    type = models.CharField(max_length=10, choices=TRUCKS_TYPES, **NULLABLE)
     main_photo = models.ImageField(upload_to='trucks_img/')
     second_photo = models.ImageField(upload_to='trucks_img/', **NULLABLE)
     third_photo = models.ImageField(upload_to='trucks_img/', **NULLABLE)
@@ -70,7 +73,7 @@ class Part(models.Model):
     price = models.IntegerField()
     info = models.TextField(**NULLABLE)
     sub_catalog = models.ForeignKey('SubCatalog', on_delete=PROTECT, related_name='part_sub_catalog')
-    part_type = models.CharField(max_length=10, choices=PARTS_TYPES, **NULLABLE)
+    type = models.CharField(max_length=10, choices=PARTS_TYPES, **NULLABLE)
     main_photo = models.ImageField(upload_to='parts_img/')
     create_date = models.DateField(auto_now_add=True)
     change_date = models.DateField(auto_now=True)
