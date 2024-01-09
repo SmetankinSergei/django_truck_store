@@ -1,0 +1,36 @@
+.content {
+    background-image: url("../img/man_back_truck_bw_op.png");
+    animation: bw-background 1000ms linear;
+    animation-iteration-count: 1;
+}
+
+@keyframes bw-background {
+    from {background-image: url("../img/man_back_truck.jpg");}
+    to {background-image: url("../img/man_back_truck_bw_op.png");}
+}
+
+.to_main_page, .not_main_page {
+    width: 100vw;
+    height: 100vh;
+    padding-left: 15em;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 110%;
+    background-image: url("../img/man_back_truck.jpg");
+}
+
+.to_main_page {
+    -webkit-animation: to_main 1000ms linear;
+    -webkit-animation-iteration-count: 1;
+    animation: to_main 1000ms linear;
+    animation-iteration-count: 1;
+}
+
+@keyframes to_main {
+    from {background-image: url("../img/man_back_truck_bw_op.png");}
+    to {background-image: url("../img/man_back_truck.jpg");}
+}
+
+.not_main_page {
+    background-image: url("../img/man_back_truck_bw_op.png");
+}

@@ -1,0 +1,87 @@
+{% load static %}
+{% load sections_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="shortcut icon" href="{% static 'img/icon.svg' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/null_style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/content_background.css' %}">
+    {% block style %}{% endblock %}
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="side-bar">
+            <img class="man-logo" src="{% static 'img/logo_man.png' %}">
+            <p class="truck-store">TRUCK STORE</p>
+
+            <div class="side-bar-navigation">
+                <nav>
+                    {% get_sections as sections %}
+                    {% for section in sections %}
+                        {% if section == section_name and is_sub_section %}
+                            <a href="{% url 'home:section' section section_name %}">
+                                <div class="side-bar-below-current-button">{{ section_name }}</div>
+                            </a>
+                        {% elif section == section_name %}
+                            <div class="side-bar-current-button">{{ section }}</div>
+                        {% else %}
+                            <a href="{% url 'home:section' section section_name %}">
+                                <div class="side-bar-button">{{ section }}</div>
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </nav>
+
+                <div class="low-message"><pre><sup>*</sup>not an official<br> dealership</pre></div>
+            </div>
+        </div>
+
+        {% if previous_section != 'main page' and section_name == 'main page' %}<div class="to_main_page">
+        {% elif previous_section == 'main page' and section_name != 'main page' %}<div class="content">
+        {% elif previous_section != 'main page' and section_name != 'main page' %}<div class="not_main_page">
+        {% endif %}
+
+            <header>
+                <div class="site-navigation">
+                    <nav>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="auth-navigation">
+                    <nav>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            {% block content %}{% endblock %}
+
+            <footer>
+                <div class="developer-contact">
+                    <a href="https://t.me/elcapitansmetankins" target="_blank">
+                        <img class="logo-telegram" src="{% static 'img/logo-telegram.svg' %}" alt="logo Telegram">
+                    </a>
+                    <a href="https://t.me/elcapitansmetankins" target="_blank">
+                        <div class="developer-contact-text">developer contact</div>
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
