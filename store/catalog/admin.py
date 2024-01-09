@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from catalog.models import SubCatalog
+
+
+@admin.register(SubCatalog)
+class SubCatalogAdmin(admin.ModelAdmin):
+    list_display = ('name', 'label')

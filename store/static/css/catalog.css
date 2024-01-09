@@ -1,0 +1,63 @@
+.sub-catalogs {
+    margin-top: 12em;
+    margin-inline: 7em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sub-catalog-link {
+    display: block;
+    width: 33em;
+}
+
+.sub-catalog-label {
+    font-size: 5em;
+    font-weight: bold;
+    color: #7e7e7e;
+    text-shadow: 1px 1px 2px #101010;
+    left: 5px;
+    opacity: 0.8;
+    bottom: 0px;
+}
+
+.sub-catalog {
+    width: 33em;
+    height: 28em;
+    padding-left: 0.5em;
+    padding-top: 23em;
+    border-radius: 0.5em;
+    background-size:100%;
+    background-position: center;
+    -webkit-animation: sub-catalog-animation 400ms linear;
+    -webkit-animation-iteration-count: 1;
+    animation: sub-catalog-animation 400ms linear;
+    animation-iteration-count: 1;
+}
+
+.sub-catalog:hover {
+    padding-top: 18em;
+    background-size: 105%;
+    filter: grayscale(100%);
+    -webkit-animation: sub-catalog-animation-hover 400ms linear;
+    -webkit-animation-iteration-count: 1;
+    animation: sub-catalog-animation-hover 400ms linear;
+    animation-iteration-count: 1;
+}
+
+@keyframes sub-catalog-animation {
+    from {filter: grayscale(100%);
+          padding-top: 18em;
+          background-size: 105%;}
+    to {filter: grayscale(0%);
+        padding-top: 23em;
+        background-size: 100%;}
+}
+
+@keyframes sub-catalog-animation-hover {
+    from {filter: grayscale(0%);
+          padding-top: 23em;
+          background-size: 100%;}
+    to {filter: grayscale(100%);
+        padding-top: 18em;
+        background-size: 105%;}
+}
