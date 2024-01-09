@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'home',
     'catalog',
     'service',
+    'car_wash',
+    'contacts',
 ]
 
 MIDDLEWARE = [

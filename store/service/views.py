@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 
-def variants(request):
+def service(request):
     render(request, 'service.service.html')
