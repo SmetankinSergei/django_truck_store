@@ -38,29 +38,15 @@
 
         <div class="store-items">
             {% block items %}
+
                 {% if sub_catalog_name == 'trucks' %}
                     {% get_trucks as items %}
                 {% elif sub_catalog_name == 'parts' %}
                     {% get_parts as items %}
                 {% endif %}
+
                 {% for item in items %}
-                    <a class="item-link" href="{% url 'catalog:item' item.pk sub_catalog_name %}">
-                        <div class="store_item" style='background-image:url("{{item.main_photo.url}}")'>
-                            <div class="info_background"></div>
-
-                            {% if sub_catalog_name == 'trucks' %}
-                                <p class="item_name">{{ item.name }} {{ item.info.year }}</p>
-                            {% elif sub_catalog_name == 'parts' %}
-                                <p class="item_name">{{ item.name }}</p>
-                            {% endif %}
-
-                            {% if item.price > 0 %}
-                                <p class="item_price">price: {{ item.price }} EUR</p>
-                            {% else %}
-                                <p class="item_price">price on request</p>
-                            {% endif %}
-                        </div>
-                    </a>
+                    {% include 'catalog/includes/items_list.html' %}
                 {% endfor %}
             {% endblock %}
         </div>
