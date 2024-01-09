@@ -1,11 +1,15 @@
 from django import template
 
-from catalog.constants import SUB_CATALOGS
+from catalog.models import SubCatalog
 
 register = template.Library()
 
 
 @register.simple_tag()
 def get_sub_catalogs():
-    # return SubCatalog.objects.all()
-    return SUB_CATALOGS
+    return SubCatalog.objects.all()
+
+
+@register.simple_tag()
+def get_trucks():
+    return Truck.objects.all()

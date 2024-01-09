@@ -17,4 +17,4 @@ def sub_catalog(request, section_name, previous_section, sub_catalog_name, prev_
         'types_data': ITEMS_TYPES_DATA[sub_catalog_name],
         'prev_item_type': prev_item_type,
     }
-    return render(request, 'root/sub_catalog.html', page_data)
+    return render(request, 'catalog/sub_catalog.html', page_data)
