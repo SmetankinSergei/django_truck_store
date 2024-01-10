@@ -1,0 +1,1 @@
+[{"model": "catalog.subcatalog", "pk": 1, "fields": {"name": "trucks", "label": "TRUCKS", "img": "img/trucks_sub_catalog.png"}}, {"model": "catalog.subcatalog", "pk": 2, "fields": {"name": "parts", "label": "PARTS", "img": "img/parts_sub_catalog.png"}}]

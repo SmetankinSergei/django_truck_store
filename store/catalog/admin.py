@@ -24,4 +24,5 @@ class TruckInfoAdmin(admin.ModelAdmin):
 class PartAdmin(admin.ModelAdmin):
     list_display = ('name', 'price', 'type', 'main_photo')
     list_filter = ('type',)
+    list_editable = ('main_photo',)
     search_fields = ('name', 'info')
