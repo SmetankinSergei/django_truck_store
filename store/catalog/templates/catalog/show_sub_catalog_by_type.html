@@ -26,15 +26,10 @@
 {% endblock %}
 
 {% block items %}
-    {% if sub_catalog_name == 'trucks' %}
-        {% get_trucks as items %}
-    {% elif sub_catalog_name == 'parts' %}
-        {% get_parts as items %}
-    {% endif %}
-
+    {% get_catalog_items sub_catalog_name as items %}
     {% for item in items %}
             {% if item.type|lower == item_type or item_type == 'all types' %}
-                {% include 'catalog/includes/items_list.html' %}
+                {% include 'catalog/includes/item_in_list.html' %}
             {% endif %}
     {% endfor %}
 {% endblock %}
