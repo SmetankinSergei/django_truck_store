@@ -11,6 +11,8 @@ class SubCatalogAdmin(admin.ModelAdmin):
 @admin.register(Truck)
 class TruckAdmin(admin.ModelAdmin):
     list_display = ('name', 'price', 'type', 'main_photo')
+    list_filter = ('type',)
+    search_fields = ('name', 'year')
 
 
 @admin.register(TruckInfo)
@@ -21,3 +23,5 @@ class TruckInfoAdmin(admin.ModelAdmin):
 @admin.register(Part)
 class PartAdmin(admin.ModelAdmin):
     list_display = ('name', 'price', 'type', 'main_photo')
+    list_filter = ('type',)
+    search_fields = ('name', 'info')
