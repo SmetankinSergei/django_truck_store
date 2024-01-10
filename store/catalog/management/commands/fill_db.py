@@ -14,10 +14,21 @@ class Command(BaseCommand):
         # for table in TABLES_LIST:
         #     table.objects.all().delete()
 
-        for datafile in TABLES_DATAFILES:
-            path = os.path.join('datafiles', datafile)
+        # for datafile in TABLES_DATAFILES:
+        #     path = os.path.join('datafiles', datafile)
+        #
+        #     with open(path) as file:
+        #         tables_data = json.load(file)
+        #
+        #         print(type(tables_data))
+        #         print(tables_data)
 
-            with open(path) as file:
-                tables_data = json.load(file)
-                print(type(tables_data))
-                print(tables_data)
+        path = os.path.join('datafiles', 'truck_data.json')
+
+        with open(path) as file:
+            tables_data = json.load(file)
+            for item in tables_data:
+                del item['model']
+                print(item)
+            # print(type(tables_data))
+            # print(tables_data)
