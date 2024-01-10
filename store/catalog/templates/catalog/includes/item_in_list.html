@@ -1,5 +1,6 @@
+{% load catalog_tags %}
 <a class="item-link" href="{% url 'catalog:item' item.pk sub_catalog_name %}">
-    <div class="store_item" style='background-image:url("{{item.main_photo.url}}")'>
+    <div class="store_item" style='background-image:url("{% main_photo_path_tag item %}")'>
         <div class="info_background"></div>
 
         {% if sub_catalog_name == 'trucks' %}
