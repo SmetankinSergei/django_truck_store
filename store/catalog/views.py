@@ -46,4 +46,4 @@ def item(request, item_id, current_catalog):
         'is_sub_section': True,
         'item': catalog_item,
     }
-    return render(request, 'root/item.html', page_data)
+    return render(request, 'catalog/item.html', page_data)
