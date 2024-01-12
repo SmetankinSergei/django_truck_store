@@ -2,40 +2,23 @@
 {% load static %}
 
 {% block style %}
-
+<link rel="stylesheet" type="text/css" href="{% static 'css/item.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="flex-container" style="display:flex;">
-    <div style="position:relative;display:flex;flex-direction:column;justify-content:space-between;padding-top:1.5em;margin-top:5em;margin-inline:1em;width:58em;height:43.5em;background-color:rgba(0, 0, 0, 0.5);text-align:center;">
-        <div class="photos">
-            <a href="#"><img src="{% static 'img/left_arrow.png' %}" style="width:3em;opacity:0.8;margin-top:12em;"></a>
-            <img src="{{ item.main_photo.url }}" style="max-width:80%;max-height:90%;border-radius:0.3em;margin-inline:1em;">
-            <a href="#"><img src="{% static 'img/right_arrow.png' %}" style="width:3em;opacity:0.8;margin-top:12em;"></a>
+<div class="flex-container">
+    <div class="main-info-block">
+        <div>
+            {% block photo %}{% endblock %}
         </div>
 
-
-        <div style="position:absolute;bottom:0.1em;left:31%;display:flex;flex-direction:column;font-size:2em;color:#bbb7b7;">
-            <div style="margin-bottom:0.5em;">{{ item.name }} {{ item.info.year }}</div>
-            <div style="margin-bottom:0.5em;display:flex;justify-content:center;">
-                <div style="text-align:right;">
-                    mileage<br>
-                    power<br>
-                    price<br>
-                </div>
-                <div><pre>   |   </pre><pre>   |   </pre><pre>   |   </pre></div>
-                <div style="text-align:left;">
-                    {{ item.info.mileage }}<br>
-                    {{ item.info.power }}<br>
-                    {{ item.price }} EUR<br>
-                </div>
-            </div>
+        <div class="item-info">
+            {% block info %}{% endblock %}
         </div>
     </div>
 
-    <div style="margin-top:5em;margin-right:1em;width:30em;height:43.5em;background-color:rgba(0, 0, 0, 0.5);text-align:center;">
-
-        <div style="margin-top:0.5em;font-size:2em;color:#bbb7b7;text-align:center;">maybe one of these:</div>
+    <div class="right-bar">
+        {% block right_bar %}{% endblock %}
     </div>
 </div>
 {% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'catalog/item.html' %}
+{% load static %}
+
+{% block photo %}
+    <a href="#"><img class="left-arrow" src="{% static 'img/left_arrow.png' %}"></a>
+        <img class="photo" src="{{ item.main_photo.url }}">
+    <a href="#"><img class="right-arrow" src="{% static 'img/right_arrow.png' %}"></a>
+{% endblock %}
+
+{% block info %}
+    <div class="item-name">{{ item.name }} {{ item.info.year }}</div>
+    <div style="margin-bottom:0.5em;display:flex;justify-content:center;">
+        <div style="text-align:right;">
+            mileage<br>
+            power<br>
+            price<br>
+        </div>
+        <div><pre>   |   </pre><pre>   |   </pre><pre>   |   </pre></div>
+        <div style="text-align:left;">
+            {{ item.info.mileage }}<br>
+            {{ item.info.power }}<br>
+            {{ item.price }} EUR<br>
+        </div>
+    </div>
+{% endblock %}
+
+{% block right_bar %}
+    <div class="right-bar-content">maybe one of these:</div>
+{% endblock %}

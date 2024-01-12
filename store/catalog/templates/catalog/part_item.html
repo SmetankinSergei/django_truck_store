@@ -1,0 +1,13 @@
+{% extends 'catalog/item.html' %}
+
+{% block photo %}
+<img class="photo" src="{{ item.main_photo.url }}">
+{% endblock %}
+
+{% block info %}
+    <div class="item-name">{{ item.name }} {{ item.price }} EUR</div>
+{% endblock %}
+
+{% block right_bar %}
+    <div class="right-bar-content">description:</div>
+{% endblock %}
