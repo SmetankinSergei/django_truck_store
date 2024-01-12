@@ -11,7 +11,7 @@
         {% get_sub_catalogs as sub_catalogs %}
         {% for sub_catalog in sub_catalogs %}
         <a class="sub-catalog-link"
-            href="{% url 'catalog:sub_catalog' section_name previous_section sub_catalog.name 'all_types' %}">
+            href="{% url 'catalog:sub_catalog' sub_catalog.name 'all types' 'all types' %}">
             <div class="sub-catalog" style='background-image:url("{% static sub_catalog.img %}");'>
                 <div class="sub-catalog-label">{{ sub_catalog.label|upper }}</div>
             </div>

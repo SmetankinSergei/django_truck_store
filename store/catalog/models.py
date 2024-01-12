@@ -39,6 +39,9 @@ class Truck(models.Model):
     create_date = models.DateField(auto_now_add=True)
     change_date = models.DateField(auto_now=True)
 
+    def __str__(self):
+        return f'{self.name} {self.type}'
+
     class Meta:
         verbose_name = 'Truck'
         verbose_name_plural = 'Trucks'
