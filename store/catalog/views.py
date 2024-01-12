@@ -20,11 +20,10 @@ def sub_catalog(request, sub_catalog_name, current_item_type, prev_item_type):
     return render(request, 'catalog/sub_catalog.html', {**context, **SUB_CATALOG_CONTEXT})
 
 
-def item(request, item_id, current_catalog):
+def item(request, item_id, sub_catalog_name):
     CATALOG_TABLES = {'trucks': Truck, 'parts': Part}
-    catalog_item = CATALOG_TABLES[current_catalog].objects.get(pk=item_id)
+    catalog_item = CATALOG_TABLES[sub_catalog_name].objects.get(pk=item_id)
     context = {
-        'current_catalog': current_catalog,
         'item': catalog_item,
     }
     return render(request, 'catalog/item.html', {**context, **SUB_CATALOG_CONTEXT})
