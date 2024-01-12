@@ -1,10 +1,35 @@
 {% extends 'catalog/item.html' %}
 {% load static %}
 
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/item.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/carousel.css' %}">
+{% endblock %}
+
 {% block photo %}
-    <a href="#"><img class="left-arrow" src="{% static 'img/left_arrow.png' %}"></a>
-        <img class="photo" src="{{ item.main_photo.url }}">
-    <a href="#"><img class="right-arrow" src="{% static 'img/right_arrow.png' %}"></a>
+<div class="slider-container">
+    <a class="prev" onclick="plusSlides(-1)"><img class="left-arrow" src="{% static 'img/left_arrow.png' %}"></a>
+
+    <div class="slider">
+        <div class="frame">
+             <img class="slider-photo" src="{{ item.main_photo.url }}">
+        </div>
+        {% if item.second_photo %}
+        <div class="frame">
+             <img class="slider-photo" src="{{ item.second_photo.url }}">
+        </div>
+        {% endif %}
+        {% if item.third_photo %}
+        <div class="frame">
+             <img class="slider-photo" src="{{ item.third_photo.url }}">
+        </div>
+        {% endif %}
+    </div>
+
+    <a class="next" onclick="plusSlides(1)"><img class="right-arrow" src="{% static 'img/right_arrow.png' %}"></a>
+</div>
+
+<script src="{% static 'js/carousel.js' %}"></script>
 {% endblock %}
 
 {% block info %}

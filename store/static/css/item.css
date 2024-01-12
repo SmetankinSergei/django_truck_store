@@ -17,6 +17,7 @@
 }
 
 .left-arrow, .right-arrow {
+    margin-inline: 1.5em;
     width: 3em;
     opacity: 0.8;
     margin-top: 12em;
