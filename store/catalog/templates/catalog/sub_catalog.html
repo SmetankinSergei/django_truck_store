@@ -16,14 +16,14 @@
         {% block types %}
             {% for type_data in types_data %}
             <map name="item_link_{{ type_data.name }}">
-                {% if type_data.name == current_type %}
+                {% if type_data.name == current_item_type %}
                 <area id="active"/>
                 {% elif type_data.name == prev_item_type %}
                 <area id="prev"
-                      href="{% url 'catalog:sub_catalog' sub_catalog_name type_data.name current_type %}"
+                      href="{% url 'catalog:sub_catalog' sub_catalog_name type_data.name current_item_type %}"
                       shape="rect" coords="20, 60, 140, 100" />
                 {% else %}
-                <area href="{% url 'catalog:sub_catalog' sub_catalog_name type_data.name current_type %}"
+                <area href="{% url 'catalog:sub_catalog' sub_catalog_name type_data.name current_item_type %}"
                       shape="rect" coords="20, 60, 140, 100" />
                 {% endif %}
             </map>
@@ -38,11 +38,9 @@
 
     <div class="scroll-container">
         <div class="store-items">
-            {% block items %}
-                {% for item in items %}
-                    {% include 'catalog/includes/item_in_list.html' %}
-                {% endfor %}
-            {% endblock %}
+            {% for item in items %}
+                {% include 'catalog/includes/item_in_list.html' %}
+            {% endfor %}
         </div>
     </div>
 </div>
