@@ -17,14 +17,11 @@
             {% for type_data in types_data %}
             <map name="item_link_{{ type_data.name }}">
                 {% if type_data.name == current_item_type %}
-                <area id="active"/>
-                {% elif type_data.name == prev_item_type %}
-                <area id="prev"
-                      href="{% url 'catalog:sub_catalog' sub_catalog_name type_data.name current_item_type %}"
-                      shape="rect" coords="20, 60, 140, 100" />
+                    <area id="active"/>
                 {% else %}
-                <area href="{% url 'catalog:sub_catalog' sub_catalog_name type_data.name current_item_type %}"
-                      shape="rect" coords="20, 60, 140, 100" />
+                    <area id="{% if type_data.name == prev_item_type %}prev{% else %}usual{% endif %}"
+                          href="{% url 'catalog:sub_catalog' sub_catalog_name type_data.name current_item_type %}"
+                          shape="rect" coords="20, 60, 140, 100" />
                 {% endif %}
             </map>
 
@@ -41,6 +38,7 @@
             {% for item in items %}
                 {% include 'catalog/includes/container_item.html' %}
             {% endfor %}
+            <!-- if items -> pagination, else -> sorry, found no one -->
         </div>
     </div>
 </div>

@@ -45,6 +45,7 @@ class Truck(models.Model):
     class Meta:
         verbose_name = 'Truck'
         verbose_name_plural = 'Trucks'
+        ordering = ('pk',)
 
 
 class TruckInfo(models.Model):
@@ -62,6 +63,7 @@ class TruckInfo(models.Model):
     class Meta:
         verbose_name = 'TruckInfo'
         verbose_name_plural = 'TruckInfo'
+        ordering = ('pk',)
 
 
 class Part(models.Model):

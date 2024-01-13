@@ -12,6 +12,8 @@ SUB_CATALOG_CONTEXT = {'title': 'MAN - Catalog',
                        'previous_section': 'catalog',
                        'is_sub_section': True,}
 
+SUB_CATALOG_TEMPLATES = {'trucks': 'catalog/truck_item.html', 'parts': 'catalog/part_item.html'}
+
 HEAD = 'HEAD'
 CARGO = 'CARGO'
 DUMP = 'DUMP'
