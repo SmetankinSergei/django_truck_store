@@ -13,17 +13,17 @@ def catalog(request):
 def sub_catalog(request, sub_catalog_name, current_item_type, prev_item_type):
     # current_item_type = request.GET.get('current_item_type', 'all types')
     # prev_item_type = request.GET.get('prev_item_type', 'all types')
-
+    page = request.GET.get('page', 1)
     items = get_catalog_items(sub_catalog_name, current_item_type)
-    # paginator = Paginator(items, 6)
-    # current_page = paginator.page(1)
+    paginator = Paginator(items, 3)
+    current_page = paginator.page(int(page))
 
     context = {
         'sub_catalog_name': sub_catalog_name,
         'types_data': ITEMS_TYPES_DATA[sub_catalog_name],
         'current_item_type': current_item_type,
         'prev_item_type': prev_item_type,
-        'items': items,
+        'items': current_page,
     }
     return render(request, 'catalog/sub_catalog.html', {**context, **SUB_CATALOG_CONTEXT})
 

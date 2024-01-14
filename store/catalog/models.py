@@ -42,6 +42,9 @@ class Truck(models.Model):
     def __str__(self):
         return f'{self.name} {self.type}'
 
+    def show_id(self):
+        return f'{self.pk:05}'
+
     class Meta:
         verbose_name = 'Truck'
         verbose_name_plural = 'Trucks'
@@ -63,7 +66,6 @@ class TruckInfo(models.Model):
     class Meta:
         verbose_name = 'TruckInfo'
         verbose_name_plural = 'TruckInfo'
-        ordering = ('pk',)
 
 
 class Part(models.Model):
@@ -86,3 +88,4 @@ class Part(models.Model):
     class Meta:
         verbose_name = 'Part'
         verbose_name_plural = 'Parts'
+        ordering = ('pk',)

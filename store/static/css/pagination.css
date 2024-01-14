@@ -1,0 +1,35 @@
+.pagination {
+    display: flex;
+    font-size: 1.5em;
+    color: #bbb7b7;
+}
+
+a {
+    color: #bbb7b7;
+}
+
+.prev-page, .next-page, .page-link {
+    width: 4em;
+    height: 2em;
+    text-align: center;
+    padding-top: 0.4em;
+    background: #252525;
+    opacity: 0.8;
+    border: solid 1px black;
+}
+
+.page-link {
+    width: 2em;
+}
+
+.prev-page:hover, .next-page:hover, .page-link:hover, .disabled {
+    opacity: 0.5;
+}
+
+.prev-page {
+    border-radius: 0.3em 0 0 0.3em;
+}
+
+.next-page {
+    border-radius: 0 0.3em 0.3em 0;
+}

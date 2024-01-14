@@ -6,6 +6,7 @@
 {% block style %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/content_background.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/sub_catalog.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/pagination.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -38,7 +39,12 @@
             {% for item in items %}
                 {% include 'catalog/includes/container_item.html' %}
             {% endfor %}
-            <!-- if items -> pagination, else -> sorry, found no one -->
+
+            {% if items %}
+                {% include 'catalog/includes/pagination.html' %}
+            {% else %}
+                <p>no items</p>
+            {% endif %}
         </div>
     </div>
 </div>
