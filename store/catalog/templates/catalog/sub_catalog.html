@@ -40,7 +40,7 @@
                 {% include 'catalog/includes/container_item.html' %}
             {% endfor %}
 
-            {% if items %}
+            {% if items.paginator.num_pages > 1 %}
                 {% include 'catalog/includes/pagination.html' %}
             {% else %}
                 <p>no items</p>

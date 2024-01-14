@@ -1,5 +1,7 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
+from django.views import View
+from django.views.generic import TemplateView
 
 from catalog.constants import ITEMS_TYPES_DATA, SUB_CATALOG_CONTEXT, SUB_CATALOG_TEMPLATES
 from catalog.models import Truck, Part
@@ -10,12 +12,16 @@ def catalog(request):
     return render(request, 'catalog/catalog.html')
 
 
+class Catalog(TemplateView):
+    template_name = 'catalog/catalog.html'
+
+
 def sub_catalog(request, sub_catalog_name, current_item_type, prev_item_type):
     # current_item_type = request.GET.get('current_item_type', 'all types')
     # prev_item_type = request.GET.get('prev_item_type', 'all types')
     page = request.GET.get('page', 1)
     items = get_catalog_items(sub_catalog_name, current_item_type)
-    paginator = Paginator(items, 3)
+    paginator = Paginator(items, 6)
     current_page = paginator.page(int(page))
 
     context = {

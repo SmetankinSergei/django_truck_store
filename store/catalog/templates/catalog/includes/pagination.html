@@ -6,7 +6,6 @@
     {% endif %}
 
     {% for page in items.paginator.page_range %}
-<!--    ?page={{ page }} type type-->
         {% if page >= items.number|add:"-2" and page <= items.number|add:"2" %}
             {% if items.number == page %}
                 <div class="page-link disabled">{{ page }}</div>
