@@ -1,0 +1,39 @@
+.main-content {
+    position: relative;
+    width: 50em;
+    margin: 9em auto;
+    padding: 1em;
+    height: 33em;
+    background-color: #101010;
+    border-radius: 0.5em;
+}
+
+.success-message, .auth-link {
+    text-align: center;
+    margin: 2em auto;
+    color: green;
+}
+
+.auth-link {
+    color: #bbb7b7;
+}
+
+.login-button {
+    padding-top: 1em;
+    display: block;
+    position: absolute;
+    bottom: 3em;
+    right: 3em;
+    height: 3em;
+    width: 10em;
+    background-color: #505050;
+    color: #bbb7b7;
+    border-radius: 0.3em;
+    font-size: 0.95em;
+    transition: font-size 200ms linear;
+}
+
+.login-button:hover {
+    font-size: 1em;
+    transition: font-size 200ms linear;
+}

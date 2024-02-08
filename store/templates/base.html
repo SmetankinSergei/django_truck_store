@@ -47,25 +47,22 @@
         {% endif %}
 
             <header>
-                <div class="site-navigation">
-                    <nav>
-                        <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
-                    </nav>
-                </div>
-
-                <div class="auth-navigation">
-                    <nav>
-                        <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
-                    </nav>
+                <div class="auth-buttons">
+                    <div class="left-side">
+                        {% if user.is_authenticated %}
+                            <p>user email: <span class="username">{{ user.email }}</span></p>
+                        {% else %}
+                            <a href="{% url 'users:register' %}">SIGN UP</a>
+                        {% endif %}
+                    </div>
+                    <pre> | </pre>
+                    <div class="right-side">
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'users:logout' %}">LOGOUT</a>
+                        {% else %}
+                            <a href="{% url 'users:login' %}">SIGN IN</a>
+                        {% endif %}
+                    </div>
                 </div>
             </header>
 
